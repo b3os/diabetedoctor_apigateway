@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\capstone_project\\backend\\Services\\ApiGateway\\src\\ApiGateway.Api\\ApiGateway.Api.csproj": {}
+    "D:\\Projects\\CapstoneProject\\diabetedoctor_apigatway\\src\\ApiGateway.Api\\ApiGateway.Api.csproj": {}
   },
   "projects": {
-    "D:\\capstone_project\\backend\\Services\\ApiGateway\\src\\ApiGateway.Api\\ApiGateway.Api.csproj": {
+    "D:\\Projects\\CapstoneProject\\diabetedoctor_apigatway\\src\\ApiGateway.Api\\ApiGateway.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\capstone_project\\backend\\Services\\ApiGateway\\src\\ApiGateway.Api\\ApiGateway.Api.csproj",
+        "projectUniqueName": "D:\\Projects\\CapstoneProject\\diabetedoctor_apigatway\\src\\ApiGateway.Api\\ApiGateway.Api.csproj",
         "projectName": "ApiGateway.Api",
-        "projectPath": "D:\\capstone_project\\backend\\Services\\ApiGateway\\src\\ApiGateway.Api\\ApiGateway.Api.csproj",
+        "projectPath": "D:\\Projects\\CapstoneProject\\diabetedoctor_apigatway\\src\\ApiGateway.Api\\ApiGateway.Api.csproj",
         "packagesPath": "C:\\Users\\vietv\\.nuget\\packages\\",
-        "outputPath": "D:\\capstone_project\\backend\\Services\\ApiGateway\\src\\ApiGateway.Api\\obj\\",
+        "outputPath": "D:\\Projects\\CapstoneProject\\diabetedoctor_apigatway\\src\\ApiGateway.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -65,10 +65,6 @@
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.21.0, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.6.2, )"
             },
             "Yarp.ReverseProxy": {
               "target": "Package",
@@ -94,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
