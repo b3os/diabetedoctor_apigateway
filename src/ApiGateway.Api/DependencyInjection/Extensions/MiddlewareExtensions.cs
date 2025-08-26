@@ -6,6 +6,8 @@ public static class MiddlewareExtensions
     {
         if (app.Environment.IsDevelopment()) { }
 
+        app.UseCors("AllowAll");
+        
         app.UseAuthentication();
         app.UseAuthorization();
         
@@ -13,5 +15,11 @@ public static class MiddlewareExtensions
         app.Use(CustomMiddlewares.AttachUserHeaderMiddleware);
 
         app.MapReverseProxy();
+        
+        app.MapMethods("{**any}", new[] { "OPTIONS" }, context =>
+        {
+            context.Response.StatusCode = StatusCodes.Status204NoContent;
+            return Task.CompletedTask;
+        });
     }
 }

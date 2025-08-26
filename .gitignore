@@ -5,3 +5,4 @@
 src/ApiGateway.Api/appsettings.Development.json
 src/ApiGateway.Api/bin
 src/ApiGateway.Api/obj
+src/ApiGateway.Api/appsettings.json
