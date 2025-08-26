@@ -2,4 +2,6 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/src/ApiGateway.Api/appsettings.Development.json
+src/ApiGateway.Api/appsettings.Development.json
+src/ApiGateway.Api/bin
+src/ApiGateway.Api/obj

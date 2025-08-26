@@ -2,8 +2,8 @@
 public class AuthSettings
 {
     public const string SectionName = "AuthSettings";
-    public string AccessSecretToken { get; set; } = default!;
-    public string AccessTokenExpMinute { get; set; } = default!;
-    public string Audience { get; set; } = default!;
-    public string Issuer { get; set; } = default!;
+    public string AccessSecretToken { get; init; } = null!;
+    public string AccessTokenExpMinute { get; init; } = null!;
+    public string Audience { get; init; } = null!;
+    public string Issuer { get; init; } = null!;
 }

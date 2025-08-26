@@ -9,7 +9,8 @@ public static class ServiceCollectionExtensions
     /// <summary>
     /// Đăng ký cấu hình từ env
     /// </summary>
-    private static IServiceCollection AddAuthSettingsConfiguration(this IServiceCollection services, IConfiguration configuration)
+    private static IServiceCollection AddAuthSettingsConfiguration(this IServiceCollection services,
+        IConfiguration configuration)
     {
         services.Configure<AuthSettings>(configuration.GetSection(AuthSettings.SectionName));
         return services;
@@ -18,7 +19,8 @@ public static class ServiceCollectionExtensions
     /// <summary>
     /// Đăng ký Authentication theo chuẩn JWT Bearer và Authorization.
     /// </summary>
-    private static IServiceCollection AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
+    private static IServiceCollection AddJwtAuthentication(this IServiceCollection services,
+        IConfiguration configuration)
     {
         // Lấy cấu hình AuthSettings
         var authSettings = configuration.GetSection(AuthSettings.SectionName).Get<AuthSettings>();
@@ -28,23 +30,23 @@ public static class ServiceCollectionExtensions
 
         // Đăng ký Authentication với JWT Bearer
         services.AddAuthentication(options =>
-        {
-            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-        })
-        .AddJwtBearer(options =>
-        {
-            options.TokenValidationParameters = new TokenValidationParameters
             {
-                ValidateIssuer = true,
-                ValidateAudience = true,
-                ValidateLifetime = true,
-                ValidateIssuerSigningKey = true,
-                ValidIssuer = authSettings.Issuer,
-                ValidAudience = authSettings.Audience,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(authSettings.AccessSecretToken))
-            };
-        });
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = authSettings.Issuer,
+                    ValidAudience = authSettings.Audience,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(authSettings.AccessSecretToken))
+                };
+            });
 
         services.AddAuthorization();
 
@@ -59,6 +61,16 @@ public static class ServiceCollectionExtensions
         builder.Services
             .AddAuthSettingsConfiguration(builder.Configuration)
             .AddJwtAuthentication(builder.Configuration);
+
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll", policy =>
+            {
+                policy.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            });
+        });
 
         builder.Services.AddReverseProxy()
             .LoadFromConfig(builder.Configuration.GetSection(ApiGatewayConstants.ReverseProxy));
