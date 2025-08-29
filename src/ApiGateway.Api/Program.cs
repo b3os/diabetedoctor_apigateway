@@ -6,8 +6,8 @@ builder.ConfigureApiService();
 
 builder.WebHost.ConfigureKestrel((options) =>
 {
-    var certPath = Environment.GetEnvironmentVariable("CERT_PATH");
-    var certPassword = Environment.GetEnvironmentVariable("CERT_PASSWORD");
+    var certPath = Environment.GetEnvironmentVariable("CERT__PATH");
+    var certPassword = Environment.GetEnvironmentVariable("CERT__PASSWORD");
     
     options.ListenAnyIP(5001, listenOptions =>
     {
