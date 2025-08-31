@@ -11,7 +11,7 @@ public static class MiddlewareExtensions
         app.UseAuthentication();
         app.UseAuthorization();
         
-        app.UseHttpsRedirection();
+        // app.UseHttpsRedirection();
         // Middleware gắn header X-User-Id, X-User-Roles vào request
         app.Use(CustomMiddlewares.AttachUserHeaderMiddleware);
 
