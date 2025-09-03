@@ -7,6 +7,11 @@ builder.WebHost.ConfigureKestrel(options =>
     options.Limits.MaxRequestBodySize = 52428800; // 50 MB
 });
 
+builder.Services.Configure<IISServerOptions>(options =>
+{
+    options.MaxRequestBodySize = 52428800; // 50 MB
+});
+
 builder.ConfigureApiService();
 
 
