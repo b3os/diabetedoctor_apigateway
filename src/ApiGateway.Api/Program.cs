@@ -2,11 +2,13 @@
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.ConfigureApiService();
 builder.WebHost.ConfigureKestrel(options =>
 {
     options.Limits.MaxRequestBodySize = 52428800; // 50 MB
 });
+
+builder.ConfigureApiService();
+
 
 // builder.WebHost.ConfigureKestrel((options) =>
 // {
